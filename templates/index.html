@@ -3,6 +3,16 @@
 <head>
     <meta charset="utf-8">
     <title>更改你的昵称</title>
+    <script>
+        function showConfirmation() {
+            var accountId = document.getElementById("accountId").value;
+            var newNickname = document.getElementById("new_nickname").value;
+
+            if (accountId !== "" && newNickname !== "") {
+                alert("昵称已提交更改！");
+            }
+        }
+    </script>
 </head>
 <body>
     <h1>更改你的昵称 使用时要使游戏账号离线 否则会失败</h1>
@@ -11,8 +21,9 @@
         <input type="text" name="accountId" id="accountId" required><br><br>
         <label for="new_nickname">输入要更改的昵称</label>
         <input type="text" name="new_nickname" id="new_nickname" required><br><br>
-        <input type="submit" value="更改">
+        <input type="submit" value="更改" onclick="showConfirmation()">
     </form>
+
     <p>
         特殊昵称示例:
     </p>
@@ -26,5 +37,6 @@
         <br>
         &lt;color=#ada4fc&gt;免&lt;/color&gt;&lt;color=#a4aff7&gt;费&lt;/color&gt;&lt;color=#9bbaf2&gt;服&lt;/color&gt;&lt;color=#91c5ed&gt;务&lt;/color&gt;&lt;color=#88d0e8&gt;器&lt;/color&gt;&lt;color=#7fdae3&gt;禁&lt;/color&gt;&lt;color=#76e5de&gt;止&lt;/color&gt;&lt;color=#6cf0d9&gt;倒&lt;/color&gt;&lt;color=#63fbd4&gt;卖&lt;/color&gt;
     </code>
+
 </body>
 </html>
