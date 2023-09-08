@@ -5,10 +5,10 @@
     <title>更改你的昵称</title>
     <script>
         function showConfirmation() {
-            var accountId = document.getElementById("accountId").value;
+            var uid = document.getElementById("uid").value;
             var newNickname = document.getElementById("new_nickname").value;
 
-            if (accountId !== "" && newNickname !== "") {
+            if (uid !== "" && newNickname !== "") {
                 alert("昵称已提交更改！");
             }
         }
@@ -17,8 +17,8 @@
 <body>
     <h1>更改你的昵称 使用时要使游戏账号离线 否则会失败</h1>
     <form method="POST" action="/">
-        <label for="accountId">输入uid</label>
-        <input type="text" name="accountId" id="accountId" required><br><br>
+        <label for="uid">输入uid</label>
+        <input type="text" name="uid" id="uid" required><br><br>
         <label for="new_nickname">输入要更改的昵称</label>
         <input type="text" name="new_nickname" id="new_nickname" required><br><br>
         <input type="submit" value="更改" onclick="showConfirmation()">
