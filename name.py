@@ -10,20 +10,19 @@ collection = db['players']
 @app.route('/', methods=['GET', 'POST'])
 def index():
     if request.method == 'POST':
-        accountId = request.form['accountId']
-        new_nickname = request.form['new_nickname']
-        update_nickname(accountId, new_nickname)
+        uid = int(request.form['uid'])
+        new_nickname = (request.form['new_nickname'])
+        update_nickname(uid, new_nickname)
     return render_template('index.html')
 
-def update_nickname(accountId, new_nickname):
-    condition = {"_id": int(accountId)}
+def update_nickname(uid, new_nickname):
+    condition = {"_id": (uid)}#_id对应数据库中的_id 不可更改
     existing_document = collection.find_one(condition)
     if existing_document:
         update = {"$set": {"nickname": new_nickname}}
         collection.update_one(condition, update)
     else:
-        new_document = {"_id": int(accountId), "nickname": new_nickname}
-        collection.insert_one(new_document)
+        return {"status": "error"}
 
 if __name__ == '__main__':
     serve(app, host='0.0.0.0', port=21472)
